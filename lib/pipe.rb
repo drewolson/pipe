@@ -19,11 +19,11 @@ class Pipe
     @content = ""
   end
 
-  def feed(url,params)
+  def feed(url,filters)
     doc = Hpricot.XML(open(url))
 
     @content += (doc/:item).select do |item|
-      params.all? { |field,pattern| (item/field).to_s =~ pattern }
+      filters.all? { |field,pattern| (item/field).to_s =~ pattern }
     end.to_s
   end
 end
