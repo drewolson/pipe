@@ -19,7 +19,7 @@ class Pipe
     @content = ""
   end
 
-  def feed(url,filters)
+  def feed(url,filters={})
     doc = Hpricot.XML(open(url))
 
     @content += (doc/:item).select do |item|
