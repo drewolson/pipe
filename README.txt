@@ -4,9 +4,9 @@
 
 == DESCRIPTION:
 
-Based on yahoo! Pipes, pipe lets you aggregate a bunch of RSS feeds based on
-filters. Tell pipe the url of the feed, and then give it a hash of xml tag
-names plus patterns those tags must fit. Use with sinatra, easy as pie.
+Pipe lets you aggregate a bunch of RSS feeds based on filters. Tell 
+pipe the url of the feed, and then give it a hash of xml tag names 
+plus patterns those tags must fit. Use with sinatra, easy as pie.
 
 == FEATURES/PROBLEMS:
 
