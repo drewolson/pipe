@@ -4,8 +4,8 @@
 
 == DESCRIPTION:
 
-Pipe lets you aggregate a bunch of RSS feeds based on filters. Tell 
-pipe the url of the feed, and then give it a hash of xml tag names 
+Pipe lets you aggregate a bunch of RSS feeds based on filters. Tell
+pipe the url of the feed, and then give it a hash of xml tag names
 plus patterns those tags must fit. Use with sinatra, easy as pie.
 
 == FEATURES/PROBLEMS:
@@ -23,7 +23,7 @@ plus patterns those tags must fit. Use with sinatra, easy as pie.
   get '/' do
     Pipe.create do
       feed "http://news.ycombinator.com/rss", :title => /ruby/i
-      feed "http://reddit.com/r/programming/.rss", :content => /ruby/i
+      feed "http://reddit.com/r/ruby/.rss"
     end
   end
 
