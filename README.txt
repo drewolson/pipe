@@ -17,7 +17,7 @@ plus patterns those tags must fit. Use with sinatra, easy as pie.
  Make a new file called ruby_pipe.rb:
 
   require 'rubygems'
-  require 'pipes'
+  require 'pipe'
   require 'sinatra'
 
   get '/' do
