@@ -34,6 +34,33 @@ plus patterns those tags must fit. Use with sinatra, easy as pie.
  Now enjoy some RSS goodness personally tailored to you at
  http://localhost:4567
 
+ We can get a bit more complicated with pipe in a couple ways. First, if you
+ have some information in scope that you want your pipe block to close over,
+ you can prevent pipe from doing an instance eval by providing a block
+ argument. In this case, the block will yield an instance of the Pipe object:
+
+  get '/' do
+    url = "http://foo.com/rss"
+ 
+    Pipe.create do |p|
+      p.feed url
+    end
+  end
+
+ You can also tell pipe to combine your filter criteria with "or" logic 
+ instead of the default "and" logic:
+
+  get '/' do
+    Pipe.create do
+      feed "http://www.foo.com/rss",
+           :title => /foo/,
+           :description => /bar/,
+           :combine_with => :or
+    end
+  end
+
+ Happy piping!
+
 == REQUIREMENTS:
 
 * pipe
