@@ -64,6 +64,7 @@ plus patterns those tags must fit. Use with sinatra, easy as pie.
 == REQUIREMENTS:
 
 * pipe
+* hpricot
 
 == INSTALL:
 
