@@ -3,7 +3,7 @@ require 'rubygems'
 require 'hpricot'
 
 class Pipe
-  VERSION = '0.1.0'
+  VERSION = '0.1.1'
   HEADER = %q{<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel>}
   FOOTER = %q{</channel></rss>}
 
@@ -11,7 +11,13 @@ class Pipe
 
   def self.create(&block)
     pipe = Pipe.new
-    pipe.instance_eval(&block)
+    
+    if block.arity.zero?
+      pipe.instance_eval(&block)
+    else
+      block.call(pipe)
+    end
+
     HEADER + pipe.content + FOOTER
   end
 
@@ -20,10 +26,12 @@ class Pipe
   end
 
   def feed(url,filters={})
+    enum = (filters[:combine_with] == :and ? :all? : :any?)
+
     doc = Hpricot.XML(open(url))
 
     @content += (doc/:item).select do |item|
-      filters.all? { |field,pattern| (item/field).to_s =~ pattern }
+      filters.send(enum) { |field,pattern| (item/field).to_s =~ pattern }
     end.to_s
   end
 end
