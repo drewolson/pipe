@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{pipe}
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Drew Olson"]
-  s.date = %q{2008-12-12}
+  s.date = %q{2008-12-14}
   s.description = %q{Pipe lets you aggregate a bunch of RSS feeds based on filters. Tell pipe the url of the feed, and then give it a hash of xml tag names plus patterns those tags must fit. Use with sinatra, easy as pie.}
   s.email = ["olsonas@gmail.com"]
   s.extra_rdoc_files = ["History.txt", "Manifest.txt", "README.txt"]
