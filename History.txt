@@ -1,3 +1,15 @@
+=== 0.1.2 / 2008-12-14
+
+* 1 bug fix
+
+  * :combine_with is removed from filters before filtering
+
+=== 0.1.1 / 2008-12-12
+
+* 1 enhancement
+
+  * create block can yield an instance
+
 === 0.1.0 / 2008-12-10
 
 * 1 major enhancement
