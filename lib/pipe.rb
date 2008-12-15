@@ -26,7 +26,7 @@ class Pipe
   end
 
   def feed(url,filters={})
-    enum = (filters[:combine_with] == :and ? :all? : :any?)
+    enum = (filters[:combine_with] == :or ? :any? : :all?)
     filters.delete(:combine_with)
 
     doc = Hpricot.XML(open(url))
