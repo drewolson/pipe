@@ -3,7 +3,7 @@ require 'rubygems'
 require 'hpricot'
 
 class Pipe
-  VERSION = '0.1.2'
+  VERSION = '0.1.3'
   HEADER = %q{<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel>}
   FOOTER = %q{</channel></rss>}
 
@@ -12,10 +12,10 @@ class Pipe
   def self.create(&block)
     pipe = Pipe.new
     
-    if block.arity.zero?
-      pipe.instance_eval(&block)
-    else
+    if block.arity == 1
       block.call(pipe)
+    else
+      pipe.instance_eval(&block)
     end
 
     HEADER + pipe.content + FOOTER
