@@ -1,5 +1,4 @@
 # -*- encoding: utf-8 -*-
-
 Gem::Specification.new do |s|
   s.name = %q{pipe}
   s.version = "0.1.3"
@@ -35,4 +34,3 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<hoe>, [">= 1.8.2"])
   end
 end
-
